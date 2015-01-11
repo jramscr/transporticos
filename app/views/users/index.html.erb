@@ -1,0 +1,110 @@
+<%= render 'layouts/topbar' %>
+
+<div class="row">
+  <div class="large-12 columns">
+
+    <div class="row">
+
+      <div class="large-4 small-12 columns">
+        <div>
+          <img src= <%= asset_path 'logo1.png' %> >
+        </div>
+        <br/>
+
+        <div class="hide-for-small panel">
+          <h3>Header</h3>
+          <h5 class="subheader">Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis.
+          </h5>
+        </div>
+
+        <%= link_to requests_path do%>
+          <div class="panel callout radius">
+            <h6><%= "Posee #{current_user.request.count} solicitudes activas."  %></h6>
+          </div>
+        <% end %>
+
+      </div>
+
+      <div class="large-8 columns">
+
+        <div class="row center">
+          <div class="large-12 columns">
+            <ul>
+              <li class="search-field">
+                <form>
+                  <div class="row collapse">
+                    <div class="small-12 columns">
+                      <input type="text" class="dream-search" placeholder="Search">
+                    </div>
+                  </div>
+                </form>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="large-4 small-6 columns">
+            <img src="http://www.liderlogo.es/images/medium/74_Log_Motor/LOGOTIPO_6098_MED.gif">
+
+            <div class="panel">
+              <h5>Item Name</h5>
+              <h6 class="subheader">$000.00</h6>
+            </div>
+          </div>
+
+          <div class="large-4 small-6 columns">
+            <img src="http://www.liderlogo.es/images/medium/LOGOTIPO_7618_MED.gif">
+
+            <div class="panel">
+              <h5>Item Name</h5>
+              <h6 class="subheader">$000.00</h6>
+            </div>
+          </div>
+
+          <div class="large-4 small-6 columns">
+            <img src="http://www.liderlogo.es/images/medium/74_Log_Motor/LOGOTIPO_0587_MED.gif">
+
+            <div class="panel">
+              <h5>Item Name</h5>
+              <h6 class="subheader">$000.00</h6>
+            </div>
+          </div>
+
+          <div class="large-4 small-6 columns">
+            <img src="http://cdn-img.easylogo.cn/gif/141/141854.gif">
+
+            <div class="panel">
+              <h5>Item Name</h5>
+              <h6 class="subheader">$000.00</h6>
+            </div>
+          </div>
+
+          <div class="large-4 small-6 columns">
+            <img src="http://www.liderlogo.es/images/74_Log_Motor/LOGOTIPO_9311_MED.gif">
+
+            <div class="panel">
+              <h5>Item Name</h5>
+              <h6 class="subheader">$000.00</h6>
+            </div>
+          </div>
+
+          <div class="large-4 small-6 columns">
+            <img src="http://www.messeninfo.de/logos/innotrans_logo_477.jpg">
+
+            <div class="panel">
+              <h5>Item Name</h5>
+              <h6 class="subheader">$000.00</h6>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<%= render 'layouts/footer' %>

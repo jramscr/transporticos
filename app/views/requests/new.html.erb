@@ -1,0 +1,7 @@
+<h1>Crear una nueva solicitud</h1>
+<%= simple_form_for @request do |f| %>
+  <%= f.input :pick_date, as: :datetime, label: 'Caracteristicas de Envio' %>
+  <%= f.input :deliver_date , as: :datetime, label: 'Caracteristicas de Entrega' %>
+  <%= f.input :budget , as: :integer, label: 'Presupuesto' %>
+  <%= f.submit 'Crear solicitud' %>
+<% end %>
