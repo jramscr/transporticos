@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150102015730) do
+ActiveRecord::Schema.define(version: 20150111224328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,8 +47,12 @@ ActiveRecord::Schema.define(version: 20150102015730) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "direction_to_pick_id"
+    t.integer  "direction_to_deliver_id"
   end
 
+  add_index "requests", ["direction_to_deliver_id"], name: "index_requests_on_direction_to_deliver_id", using: :btree
+  add_index "requests", ["direction_to_pick_id"], name: "index_requests_on_direction_to_pick_id", using: :btree
   add_index "requests", ["user_id"], name: "index_requests_on_user_id", using: :btree
 
   create_table "townships", force: true do |t|
