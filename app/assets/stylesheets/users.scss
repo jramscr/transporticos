@@ -1,0 +1,12 @@
+$bg-color: rgba(41, 128, 185, 0.4);
+$square-size: 12rem;
+
+#profile{
+  width: $square-size;
+  margin: 1rem;
+  background-color: $bg-color;
+}
+
+#searcher{
+  list-style-type: none;
+}

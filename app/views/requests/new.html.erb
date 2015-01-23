@@ -1,7 +1,40 @@
-<h1>Crear una nueva solicitud</h1>
-<%= simple_form_for @request do |f| %>
-  <%= f.input :pick_date, as: :datetime, label: 'Caracteristicas de Envio' %>
-  <%= f.input :deliver_date , as: :datetime, label: 'Caracteristicas de Entrega' %>
-  <%= f.input :budget , as: :integer, label: 'Presupuesto' %>
-  <%= f.submit 'Crear solicitud' %>
-<% end %>
+<%= render 'layouts/topbar' %>
+
+<div class='row uncollapse panel callout radius'>
+  <div class='columns small-10 large-8 small-centered large-centered'>
+    <h1>Crear una nueva solicitud</h1>
+  </div>
+  <div class='columns small-10 large-8 small-centered large-centered'>
+    <%= simple_form_for @request do |f| %>
+      <div class='row collapse'>
+        <div class='columns small-3'>
+          <%= f.label :pick_date, label: 'Caracteristicas de Envio', class: 'label [radius round]' %>
+        </div>
+        <div class='columns small-9'>
+          <%= f.input :pick_date, as: :datetime, label: false %>
+        </div>
+      </div>
+      <div class='row collapse'>
+        <div class='columns small-3'>
+          <%= f.label :deliver_date, label: 'Caracteristicas de Entrega', class: 'label [radius round]' %>
+        </div>
+        <div class='columns small-9'>
+          <%= f.input :deliver_date , as: :datetime, label: false %>
+        </div>
+      </div>
+      <div class='row collapse'>
+        <div class='columns small-3'>
+          <%= f.label :budget, label: 'Presupuesto', class: 'label [radius round]' %>
+        </div>
+        <div class='columns small-9'>
+          <%= f.input :budget , as: :integer, label: false %>
+        </div>
+      </div>
+      <div class='row collapse'>
+        <%= f.submit 'Crear solicitud' , class: 'button radius right' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render 'layouts/footer' %>

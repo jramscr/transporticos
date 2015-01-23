@@ -1,5 +1,38 @@
-<div class='row'>
-  <%= @requests.each do |requestobject|%>
-    <p><%= puts requestobject %></p>
-  <% end %>
+<%= render 'layouts/topbar' %>
+<div class='row collapse'>
+  <div class='panel callout alert radius'>
+    <div class='title'>
+      <span><h3>Notificaciones</h3></span>
+    </div>
+    Hasta el momento ha recibido 0 respuestas.
+  </div>
 </div>
+<div class='row collapse panel callout radius'>
+  <div class='title'>
+    <span><h3>Solicitudes Activas</h3></span>
+  </div>
+    <table class='table'>
+      <tr>
+        <th>Dia de Carga</th>
+        <th>Hora de Carga</th>
+        <th>Direccion de Carga</th>
+        <th>Dia de Entrega</th>
+        <th>Hora de Entrega</th>
+        <th>Direccion de Entrega</th>
+        <th>Presupuesto</th>
+      </tr>
+      <%= @requests.each do |request|%>
+        <tr>
+          <td><%= request.pick_date.strftime('%A %d %B %Y')  %></td>
+          <td><%= request.pick_date.strftime('%l %M %p') %></td>
+          <td><%= request.direction_to_pick_id  %></td>
+          <td><%= request.deliver_date.strftime('%A %d %B %Y') %></td>
+          <td><%= request.deliver_date.strftime('%l %M %p') %></td>
+          <td><%= request.direction_to_deliver_id  %></td>
+          <td><%= request.budget  %></td>
+        </tr>
+      <% end %>
+    </table>
+</div>
+
+<%= render 'layouts/footer'  %>

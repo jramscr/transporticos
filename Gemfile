@@ -1,33 +1,34 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.1.8'
-gem 'pg'
-gem 'sass-rails', '~> 4.0.3'
-gem 'uglifier', '>= 1.3.0'
+gem 'cancan','~> 1.6.10'
 gem 'coffee-rails', '~> 4.0.0'
-gem 'jquery-rails'
-gem 'turbolinks'
+gem 'country_select','~> 2.1.0'
+gem 'devise','~> 3.4.1'
+gem 'devise_invitable','~> 1.4.0'
+gem 'foundation-rails','~> 5.4.5.0'
 gem 'jbuilder', '~> 2.0'
+gem 'jquery-rails','~> 3.1.2'
+gem 'kaminari','~> 0.16.1'
+gem 'pg','~> 0.17.1'
+gem 'rails', '4.1.8'
+gem 'sass-rails', '~> 4.0.3'
 gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'devise'
-gem 'cancan'
-gem 'foundation-rails'
-gem 'country_select'
-gem 'simple_form'
-gem 'will_paginate', '~> 3.0.7'
+gem 'simple_form','~> 3.1.0'
+gem 'turbolinks','~> 2.5.3'
+gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
-  gem 'factory_girl'
+  gem 'factory_girl_rails','~> 4.5.0'
+  gem 'faker','~> 1.4.3'
   gem 'rspec-rails','~> 3.0'
-  gem 'shoulda-matchers', require: false
-  gem 'devise_invitable'
+  gem 'shoulda-matchers', '~> 2.7.0',require: false
 end
 
 group :development do
-  gem 'rubocop'
-  gem 'spring'
+  gem 'rubocop','~> 0.28.0'
+  gem 'spring','~> 1.2.0'
 end
 
 group :development, :production do
-  gem 'rails_12factor'
+  gem 'rails_12factor', '~> 0.0.3'
 end

@@ -1,14 +1,9 @@
-<div class="row">
-  <div class="large-12 columns">
-
     <nav class="top-bar" data-topbar>
       <ul class="title-area">
 
         <li class="name">
           <h1>
-            <a href="#">
-              Mudanzas de Costa Rica
-            </a>
+            <%= link_to 'Transporticos', root_path  %>
           </h1>
         </li>
         <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
@@ -23,9 +18,9 @@
           <li class="has-dropdown">
             <a href="#">Configuracion</a>
             <ul class="dropdown">
-              <li><a href="#">Dropdown Option</a></li>
-              <li><a href="#">Dropdown Option</a></li>
-              <li><a href="#">Dropdown Option</a></li>
+              <li><a href="#">Notificaciones</a></li>
+              <li><%= link_to 'Perfil', user_path( current_user.id )  %></li>
+              <li><%= link_to 'Ser un transportista', edit_user_path( current_user.id ) %></li>
               <li class="divider"></li>
               <li><a href="#"><%= link_to 'Salir', destroy_user_session_path, method: :delete %></a></li>
             </ul>
@@ -33,7 +28,4 @@
         </ul>
       </section>
     </nav>
-
-  </div>
-</div>
 <br/>
