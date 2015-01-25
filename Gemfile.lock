@@ -191,7 +191,7 @@ PLATFORMS
 
 DEPENDENCIES
   cancan (~> 1.6.10)
-  cocoon
+  cocoon (~> 1.2.6)
   coffee-rails (~> 4.0.0)
   country_select (~> 2.1.0)
   devise (~> 3.4.1)
@@ -202,7 +202,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails (~> 3.1.2)
   kaminari (~> 0.16.1)
-  lists_constant
+  lists_constant (~> 0.2.2)
   pg (~> 0.17.1)
   rails (= 4.1.8)
   rails_12factor (~> 0.0.3)

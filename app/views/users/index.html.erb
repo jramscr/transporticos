@@ -46,16 +46,19 @@
         </div>
 
         <div class="row">
-          <%= paginate @users %>
 
-          <%= @users.each do |user| %>
+          <div class='row collapse'>
+            <%= paginate @users %>
+          </div>
+
+          <%= @users.map.each do |user| %>
             <div class="columns small-6 large-4">
 
               <%= link_to user, class: 'button', id: 'profile' do %>
                 <%= image_tag('logo.png') %>
                 <hr/>
                 <div class='header row'>
-                  <%= "Nombre Apellido" %>
+                  <%= user.email %>
                 </div>
                 <div class='subheader row'>
                   <%= "Provincia Canton"  %>
@@ -65,7 +68,10 @@
             </div>
           <% end %>
 
-          <%= paginate @users %>
+          <div class='row collapse'>
+            <%= paginate @users %>
+          </div>
+
         </div>
 
       </div>

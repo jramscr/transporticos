@@ -4,32 +4,84 @@
   <div class='columns small-10 large-8 small-centered large-centered'>
     <h1>Crear una nueva solicitud</h1>
   </div>
+
   <div class='columns small-10 large-8 small-centered large-centered'>
     <%= simple_form_for @request do |f| %>
       <div class='row collapse'>
         <div class='columns small-3'>
           <%= f.label :pick_date, label: 'Caracteristicas de Envio', class: 'label [radius round]' %>
         </div>
+
         <div class='columns small-9'>
           <%= f.input :pick_date, as: :datetime, label: false %>
         </div>
+
+        <div class='columns small-9'>
+          <%= f.simple_fields_for :direction_to_pick_id do |direction| %>
+            <div class='row collapse'>
+              <div class='columns small-4'>
+                <%= direction.input :province_id %>
+              </div>
+
+              <div class='columns small-4'>
+                <%= direction.input :township_id %>
+              </div>
+
+              <div class='columns small-4'>
+                <%= direction.input :district_id %>
+              </div>
+            </div>
+
+            <div class='row collapse'>
+              <%= direction.input :description %>
+            </div>
+          <% end %>
+        </div>
+
       </div>
+
       <div class='row collapse'>
         <div class='columns small-3'>
           <%= f.label :deliver_date, label: 'Caracteristicas de Entrega', class: 'label [radius round]' %>
         </div>
+
         <div class='columns small-9'>
           <%= f.input :deliver_date , as: :datetime, label: false %>
         </div>
+
+        <div class='columns small-9'>
+          <%= f.simple_fields_for :direction_to_deliver_id do |direction| %>
+            <div class='row collapse'>
+              <div class='columns small-4'>
+                <%= direction.input :province_id %>
+              </div>
+
+              <div class='columns small-4'>
+                <%= direction.input :township_id %>
+              </div>
+
+              <div class='columns small-4'>
+                <%= direction.input :district_id %>
+              </div>
+            </div>
+
+            <div class='row collapse'>
+              <%= direction.input :description %>
+            </div>
+          <% end %>
+        </div>
       </div>
+
       <div class='row collapse'>
         <div class='columns small-3'>
           <%= f.label :budget, label: 'Presupuesto', class: 'label [radius round]' %>
         </div>
+
         <div class='columns small-9'>
           <%= f.input :budget , as: :integer, label: false %>
         </div>
       </div>
+
       <div class='row collapse'>
         <%= f.submit 'Crear solicitud' , class: 'button radius right' %>
       </div>

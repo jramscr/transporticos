@@ -11,8 +11,8 @@ class RequestsController < ApplicationController
 
   def create
     @request = Request.new(request_params)
+    1/0
     @request.user_id = current_user.id
-    @request.save
     if @request.save
       redirect_to users_path
     else
@@ -39,7 +39,13 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:pick_date, :deliver_date, :budget)
+    params.require(:request).permit(
+      :pick_date,
+      :direction_to_pick_id_attributes[ :province_id, :township_id, :district_id, :description ],
+      :deliver_date,
+      :direction_to_deliver_id_attributes[ :province_id, :township_id, :district_id, :description ],
+      :budget
+      )
   end
 
   def find_request

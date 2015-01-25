@@ -21,7 +21,7 @@
         <th>Direccion de Entrega</th>
         <th>Presupuesto</th>
       </tr>
-      <%= @requests.each do |request|%>
+      <%= @requests.map.each do |request|%>
         <tr>
           <td><%= request.pick_date.strftime('%A %d %B %Y')  %></td>
           <td><%= request.pick_date.strftime('%l %M %p') %></td>
