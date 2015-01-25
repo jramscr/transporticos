@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150111224328) do
+ActiveRecord::Schema.define(version: 20150125190656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,13 +31,15 @@ ActiveRecord::Schema.define(version: 20150111224328) do
 
   create_table "districts", force: true do |t|
     t.string  "name"
-    t.integer "tonwship_id"
+    t.integer "township_id"
+    t.integer "code"
   end
 
-  add_index "districts", ["tonwship_id"], name: "index_districts_on_tonwship_id", using: :btree
+  add_index "districts", ["township_id"], name: "index_districts_on_township_id", using: :btree
 
   create_table "provinces", force: true do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "code"
   end
 
   create_table "requests", id: false, force: true do |t|
@@ -58,6 +60,7 @@ ActiveRecord::Schema.define(version: 20150111224328) do
   create_table "townships", force: true do |t|
     t.string  "name"
     t.integer "province_id"
+    t.integer "code"
   end
 
   add_index "townships", ["province_id"], name: "index_townships_on_province_id", using: :btree

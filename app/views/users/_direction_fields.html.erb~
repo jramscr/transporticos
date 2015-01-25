@@ -1,0 +1,16 @@
+              <div class='columns small-4'>
+                <%= direction.input :province_id , collection: Province.all.map{ |province| [ province.name, province.id ] } %>
+              </div>
+
+              <div class='columns small-4'>
+                <%= direction.input :township_id, collection: Township.all.map{ |township| [ township.name, township.id, township.code ] } %>
+              </div>
+
+              <div class='columns small-4'>
+                <%= direction.input :district_id, collection: District.all.map{ |district| [ district.name, district.id, district.code] } %>
+              </div>
+            </div>
+
+            <div class='row collapse'>
+              <%= direction.input :description %>
+            </div>

@@ -17,24 +17,8 @@
         </div>
 
         <div class='columns small-9'>
-          <%= f.simple_fields_for :direction_to_pick_id do |direction| %>
-            <div class='row collapse'>
-              <div class='columns small-4'>
-                <%= direction.input :province_id %>
-              </div>
-
-              <div class='columns small-4'>
-                <%= direction.input :township_id %>
-              </div>
-
-              <div class='columns small-4'>
-                <%= direction.input :district_id %>
-              </div>
-            </div>
-
-            <div class='row collapse'>
-              <%= direction.input :description %>
-            </div>
+          <%= f.simple_fields_for :direction_to_pick_id do |direction_to_pick| %>
+            <%= render 'direction_fields', :f => direction_to_pick %>
           <% end %>
         </div>
 
@@ -50,24 +34,8 @@
         </div>
 
         <div class='columns small-9'>
-          <%= f.simple_fields_for :direction_to_deliver_id do |direction| %>
-            <div class='row collapse'>
-              <div class='columns small-4'>
-                <%= direction.input :province_id %>
-              </div>
-
-              <div class='columns small-4'>
-                <%= direction.input :township_id %>
-              </div>
-
-              <div class='columns small-4'>
-                <%= direction.input :district_id %>
-              </div>
-            </div>
-
-            <div class='row collapse'>
-              <%= direction.input :description %>
-            </div>
+          <%= f.simple_fields_for :direction_to_deliver_id do |direction_to_deliver| %>
+            <%= render 'direction_fields', :f => direction_to_deliver %>
           <% end %>
         </div>
       </div>
