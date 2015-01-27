@@ -1,5 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe Direction, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Direction, :type => :model do
+
+  describe 'associations' do
+    it { is_expected.to belong_to :request }
+    it { is_expected.to have_one :province }
+    it { is_expected.to have_one :township }
+    it { is_expected.to have_one :district }
+  end
 end

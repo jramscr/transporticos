@@ -1,5 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe Township, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Township, :type => :model do
+
+  describe 'associations' do
+    it { is_expected.to belong_to :province }
+    it { is_expected.to have_many :districts }
+  end
 end

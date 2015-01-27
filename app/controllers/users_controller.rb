@@ -6,8 +6,7 @@ class UsersController < ApplicationController
     @users = User.order(:email).page params[:page]
   end
 
-  def show
-  end
+  def show; end
 
   def edit
     @user = current_user
@@ -15,7 +14,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(request_params)
-      redirect_to user_edit_path
+      redirect_to user_path
     end
   end
 

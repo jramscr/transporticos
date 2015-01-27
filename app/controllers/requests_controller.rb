@@ -12,7 +12,6 @@ class RequestsController < ApplicationController
   def create
     @request = Request.new(request_params)
     @request.user_id = current_user.id
-    1/0
     if @request.save
       redirect_to users_path
     else
@@ -20,11 +19,9 @@ class RequestsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @request.update(request_params)
