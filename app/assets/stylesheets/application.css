@@ -10,12 +10,19 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
- *= require foundation
- *= require foundation_and_overrides
+ *= require animate
+ *= require bootstrap.min
+ *= require font-awesome
+ *= require main
+ *= require prettyPhoto
+ *= require responsive
+ *= require_tree .
 
  */
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
  .full-width {
    max-width: 1400px;
@@ -27,6 +34,7 @@
    text-align: center;
    color: #fff;
  }
+
  .footer i {
    font-size: 100px;
  }
@@ -39,10 +47,19 @@
    margin-top: 2.5rem;
    margin-bottom: 10px;
  }
+
  .footer p, .footer a {
    font-weight: 300;
    font-size: .8em;
    color: #fff;
+ }
+
+ .footer-links {
+   list-style-type: none;
+ }
+
+ .footer-links li {
+   margin-top: .5em;
  }
 
  @media only screen and (min-width: 40.063em) {
@@ -50,10 +67,4 @@
      border-left: 1px solid #b3b3b3;
      min-height: 280px;
    }
- }
- .footer-links {
-   list-style-type: none;
- }
- .footer-links li {
-   margin-top: .5em;
  }

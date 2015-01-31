@@ -10,10 +10,14 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require_tree .
 //= require cocoon
-//= require foundation/foundation
 //= require jquery
 //= require jquery_ujs
-
-$(function(){ $(document).foundation(); });
+//= require bootstrap.min
+//= require contact
+//= require gmaps
+//= require html5shiv
+//= require jquery.prettyPhoto
+//= require jquery.scrollUp.min
+//= require main
+//= require_tree .

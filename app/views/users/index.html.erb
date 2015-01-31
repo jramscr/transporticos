@@ -1,84 +1,52 @@
+<%= render 'layouts/pagetitle' %>
+
 <%= render 'layouts/topbar' %>
 
-<div class="row">
-  <div class="large-12 columns">
+<%= render 'layouts/banner' %>
 
+<section>
+  <div class="container">
     <div class="row">
-
-      <div class="columns small-12 large-4">
-        <div>
-          <img src= <%= asset_path 'logo1.png' %> >
-        </div>
-        <br/>
-
-        <div class="hide-for-small panel">
-          <h3>Welcome!</h3>
-          <h5 class="subheader">
-            <%= "Hi #{current_user.email}, enjoy this awesome app, we expect that you can find usefull this application, also we want to hear about what do you think we can improve. So, let us know!!"%>
-            <%= mail_to 'movinghomecr@gmail.com'%>
-          </h5>
-        </div>
-
-        <%= link_to requests_path do%>
-          <div class="panel callout radius">
-            <h6><%= "Posee #{current_user.request.count} solicitudes activas."  %></h6>
-          </div>
-        <% end %>
-
+      <div class="col-sm-3">
+        <%= render 'layouts/filters' %>
       </div>
+      
+      <div class="col-sm-9 padding-right">
+        <div class="features_items"><!--features_items-->
+          <h2 class="title text-center">Transportistas Filtrados</h2>
 
-      <div class="large-8 columns">
+          <%= paginate @users %>
 
-        <div class="row center">
-          <div class="large-12 columns">
-            <ul>
-              <li class="search-field" id='searcher'>
-                <form>
-                  <div class="row collapse">
-                    <div class="small-12 columns">
-                      <input type="text" class="dream-search" placeholder="Search">
+          <%= @users.each do |user| %>
+            <div class="col-sm-4">
+              <div class="product-image-wrapper">
+                <div class="single-products">
+                  <div class="productinfo text-center">
+                    <img src=<%= asset_path ('carriers/example.jpg') %> alt="" />
+                    <h2><%= user.id %></h2>
+                    <p><%= user.email %></p>
+                  </div>
+                  <div class="product-overlay">
+                    <div class="overlay-content">
+                      <h2>Detalles</h2>
+                      <p>Provincia</p>
+                      <p>Canton</p>
+                      <p>Distrito</p>
+                      <%= link_to 'More info...', user_path(user.id), class: 'btn btn-default add-to-cart' %>
                     </div>
                   </div>
-                </form>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="row">
-
-          <div class='row collapse'>
-            <%= paginate @users %>
-          </div>
-
-          <%= @users.map.each do |user| %>
-            <div class="columns small-6 large-4">
-
-              <%= link_to user, class: 'button', id: 'profile' do %>
-                <%= image_tag('logo.png') %>
-                <hr/>
-                <div class='header row'>
-                  <%= user.email %>
                 </div>
-                <div class='subheader row'>
-                  <%= "Provincia Canton"  %>
-                </div>
-              <% end %>
-
+              </div>
             </div>
           <% end %>
 
-          <div class='row collapse'>
-            <%= paginate @users %>
-          </div>
-
-        </div>
-
+          <%= paginate @users %>
+          
+        </div><!--features_items-->
+        
       </div>
-
     </div>
-
   </div>
-</div>
+</section>
 
 <%= render 'layouts/footer' %>

@@ -1,31 +1,80 @@
-    <nav class="top-bar" data-topbar>
-      <ul class="title-area">
-
-        <li class="name">
-          <h1>
-            <%= link_to 'Transporticos', root_path  %>
-          </h1>
-        </li>
-        <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
-      </ul>
-
-      <section class="top-bar-section">
-
-        <ul class="right">
-          <li class="divider"></li>
-          <li><a href="#"><%= link_to 'Nueva solicitud', new_request_path %></a></li>
-          <li class="divider"></li>
-          <li class="has-dropdown">
-            <a href="#">Configuracion</a>
-            <ul class="dropdown">
-              <li><a href="#">Notificaciones</a></li>
-              <li><%= link_to 'Perfil', user_path( current_user.id )  %></li>
-              <li><%= link_to 'Ser un transportista', edit_user_path( current_user.id ) %></li>
-              <li class="divider"></li>
-              <li><a href="#"><%= link_to 'Salir', destroy_user_session_path, method: :delete %></a></li>
+<header id="header"><!--header-->
+  <div class="header_top"><!--header_top-->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="contactinfo">
+            <ul class="nav nav-pills">
+              <li><a href="#"><%= icon('fa-phone') %></i> +2 95 01 88 821</a></li>
+              <li><a href="#"><%= icon('fa-envelope') %></i> info@domain.com</a></li>
             </ul>
-          </li>
-        </ul>
-      </section>
-    </nav>
-<br/>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="social-icons pull-right">
+            <ul class="nav navbar-nav">
+              <li><a href="#"><%= icon('fa-facebook') %></a></li>
+              <li><a href="#"><%= icon('fa-twitter') %></a></li>
+              <li><a href="#"><%= icon('fa-linkedin') %></a></li>
+              <li><a href="#"><%= icon('fa-google-plus') %></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!--/header_top-->
+  
+  <div class="header-middle"><!--header-middle-->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="logo pull-left">
+            <a href="index.html"><img src=<%= asset_path ('shared/logo.png') %> alt="" /></a>
+          </div>
+        </div>
+        <div class="col-sm-8">
+          <div class="shop-menu pull-right">
+            <ul class="nav navbar-nav">
+              <% if user_signed_in? %>
+                <li><%= current_user.email %></li>
+                <li><%= icon('fa-lock') %><%= link_to 'Logout' ,  destroy_user_session_path, method: :delete  %></li>
+              <% else %>
+                <li><%= icon('fa-lock') %><%= link_to 'Login' ,  new_user_session_path %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!--/header-middle-->
+
+  <div class="header-bottom"><!--header-bottom-->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+
+          <div class="mainmenu pull-left">
+            <ul class="nav navbar-nav collapse navbar-collapse">
+              <li><%= link_to 'Home', root_path %></li>
+              <% if user_signed_in? %>
+                <li><%= link_to 'Profile', user_path(current_user.id) %></li>
+                <li><%= link_to 'Notificaciones', requests_path %></li>
+              <% end %>
+              <li><%= link_to 'Contact' %></li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div><!--/header-bottom-->
+</header><!--/header-->

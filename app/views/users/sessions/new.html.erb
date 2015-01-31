@@ -1,36 +1,36 @@
 <%= render 'layouts/pagetitle' %>
+<%= render 'layouts/topbar' %>
 
-<div class="row center">
-  <br/>
-  <div class="large-6 columns auth-plain">
-      <div class="signup-panel newusers">
-          <p class="welcome"> New User?</p>
+<div class="container">
+  <div class="col-sm-12 col-lg-6">
+      <div>
+          <p> New User?</p>
           <p>By creating an account with us, you will be able to move through the checkout process faster, view and track your orders, and more.</p><br>
           <a href="#" ><%= link_to 'Sign Up', new_user_registration_path %></a><br/><br/>
       </div>
   </div>
 
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="large-6 columns auth-plain">
-    <div class="signup-panel left-solid">
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form-horizontal' } ) do |f| %>
+  <div class="col-sm-12 col-lg-6">
+    <div>
       <p class="welcome">Registered Users</p>
 
-        <div class="row collapse">
-          <div class="small-10 columns">
+        <div class="row">
+          <div class="col-sm-12">
             <%= f.input :email, required: false, autofocus: true , type: 'text', placeholder:'username' %>
           </div>
         </div>
-        <div class="row collapse">
-          <div class="small-10 columns ">
+        <div class="row">
+          <div class="col-sm-12">
             <%= f.input :password, required: false, type: 'text', placeholder: 'password' %>
           </div>
         </div>
-      <div class="form-actions">
-        <div class='row collapse'>
-          <div class='columns large-6'>
+      <div>
+        <div class='row'>
+          <div class='col-sm-6'>
             <%= f.button :submit, "Log in" %>
           </div>
-          <div class='columns large-6'>
+          <div class='col-sm-6'>
             <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
             <%= link_to 'Forgot your password?', new_user_password_path %>
           </div>
@@ -39,31 +39,6 @@
     </div>
   </div>
   <% end %>
-  <br/>
-  <hr/>
-</div>
-
-<div class="row" id='news-container' >
-  <br/>
-
-  <div class="large-4 columns">
-    <img src="http://placehold.it/400x300&text=[img]"/>
-    <h4>This is a content section.</h4>
-    <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
-  </div>
-
-  <div class="large-4 columns">
-    <img src="http://placehold.it/400x300&text=[img]"/>
-    <h4>This is a content section.</h4>
-    <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
-  </div>
-
-  <div class="large-4 columns">
-    <img src="http://placehold.it/400x300&text=[img]"/>
-    <h4>This is a content section.</h4>
-    <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
-  </div>
-
 </div>
 
 <%= render 'layouts/footer' %>
