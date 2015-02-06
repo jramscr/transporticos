@@ -1,29 +1,5 @@
-<header id="header"><!--header-->
-  <div class="header_top"><!--header_top-->
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="contactinfo">
-            <ul class="nav nav-pills">
-              <li><a href="#"><%= icon('fa-phone') %></i> +2 95 01 88 821</a></li>
-              <li><a href="#"><%= icon('fa-envelope') %></i> info@domain.com</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="social-icons pull-right">
-            <ul class="nav navbar-nav">
-              <li><a href="#"><%= icon('fa-facebook') %></a></li>
-              <li><a href="#"><%= icon('fa-twitter') %></a></li>
-              <li><a href="#"><%= icon('fa-linkedin') %></a></li>
-              <li><a href="#"><%= icon('fa-google-plus') %></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div><!--/header_top-->
-  
+<header id="header">
+
   <div class="header-middle"><!--header-middle-->
     <div class="container">
       <div class="row">
@@ -36,11 +12,10 @@
           <div class="shop-menu pull-right">
             <ul class="nav navbar-nav">
               <% if user_signed_in? %>
-                <li><%= current_user.email %></li>
-                <li><%= icon('fa-lock') %><%= link_to 'Logout' ,  destroy_user_session_path, method: :delete  %></li>
-              <% else %>
-                <li><%= icon('fa-lock') %><%= link_to 'Login' ,  new_user_session_path %></li>
-              <% end %>
+                <li><%= "Bienvenido #{ current_user.email }!" %><%= link_to 'Salir' ,  destroy_user_session_path, method: :delete  %></li>
+            <% else %>
+                <li><%= link_to 'Entrar' ,  new_user_session_path %></li>
+            <% end %>
             </ul>
           </div>
         </div>
@@ -63,12 +38,33 @@
 
           <div class="mainmenu pull-left">
             <ul class="nav navbar-nav collapse navbar-collapse">
-              <li><%= link_to 'Home', root_path %></li>
+              <li><%= link_to 'Inicio', root_path %></li>
               <% if user_signed_in? %>
-                <li><%= link_to 'Profile', user_path(current_user.id) %></li>
-                <li><%= link_to 'Notificaciones', requests_path %></li>
-              <% end %>
-              <li><%= link_to 'Contact' %></li>
+                <li><%= link_to 'Perfil', user_path(current_user.id) %></li>
+              <% if current_user.requests.count.zero? %>
+                <li><%= link_to 'Mis solicitudes', requests_path %></li>
+            <% else %>
+                <li>
+              <%= link_to requests_path do %>
+                Mis solicitudes <span class="badge"><%= current_user.requests.count %></span>
+            <% end %>
+              </li>
+            <% end %>
+
+              <% if current_user.notifications.count.zero? %>
+                <li><%= link_to 'Notificaciones', notifications_path %></li>
+            <% else %>
+                <li>
+              <%= link_to requests_path do %>
+                Notificaciones <span class="badge"><%= current_user.notifications.count %></span>
+            <% end %>
+              </li>
+            <% end %>
+            <% end %>
+              <% if current_user %>
+                <li><%= link_to 'Solicitudes de Transporte' %></li>
+              <li><%= link_to 'Perfil Profesional' %></li>
+            <% end %>
             </ul>
           </div>
 

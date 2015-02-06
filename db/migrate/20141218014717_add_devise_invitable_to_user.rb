@@ -8,7 +8,7 @@ class AddDeviseInvitableToUser < ActiveRecord::Migration
     add_column :users, :invited_by_id, :integer
     add_column :users, :invited_by_type, :string
     add_index :users, :invitation_token, :unique => true
-
     change_column :users, :encrypted_password, :string, :null => true
   end
+
 end

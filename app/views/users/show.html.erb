@@ -1,45 +1,129 @@
-<div class='row uncollapse'>
+<%= render 'layouts/topbar' %>
 
-  <div class='columns small-12 large-5'>
-    <div class='panel callout radius'>
-      <div class='row collapse'>
-        <span>Header</span>
-        <span><%= current_user.email %></span>
-      </div>
-      <div class='row collapse'>
-        <span>Header</span>
-        <span><%= current_user.email %></span>
-      </div>
-      <div class='row collapse'>
-        <span>Header</span>
-        <span><%= current_user.email %></span>
-      </div>
-      <div class='row collapse'>
-        <span>Header</span>
-        <span><%= current_user.email %></span>
+<div class='container'>
+  <div class='container'>
+
+    <% if user_signed_in? %>
+      <div class='col-lg-6'>
+      <div class='media panel panel-success'>
+
+        <h2>Información Personal</h2>
+
+        <div class='col-md-6'>
+          <img src=<%= asset_path ('carriers/example.jpg') %> alt="" />
+        </div>
+
+        <div class='col-md-6'>
+
+          <div>
+            <h4>Nombre</h4>
+            <span><%= @user.name %></span>
+          </div>
+
+          <div>
+            <h4>Primer Apellido</h4>
+            <span><%= @user.first_surname %></span>
+          </div>
+
+          <div>
+            <h4>Segundo Apellido</h4>
+            <span><%= @user.second_surname %></span>
+          </div>
+
+          <div>
+            <h4>Correo</h4>
+            <span><%= @user.email %></span>
+          </div>
+
+          <div>
+            <h4>Celular</h4>
+            <span><%= @user.mobile_phone %></span>
+          </div>
+
+        </div><br/>
+
+
       </div>
     </div>
-  </div>
 
-  <div class='columns small-12 large-5'>
-    <div class='panel callout radius'>
-      <div class='row collapse'>
-        <span>Header</span>
-        <span><%= current_user.email %></span>
-      </div>
-      <div class='row collapse'>
-        <span>Header</span>
-        <span><%= current_user.email %></span>
-      </div>
-      <div class='row collapse'>
-        <span>Header</span>
-        <span><%= current_user.email %></span>
-      </div>
-      <div class='row collapse'>
-        <span>Header</span>
-        <span><%= current_user.email %></span>
+    <div class='col-lg-6'>
+      <div class='media panel panel-success'>
+
+        <h2>Cambiar contraseña</h2>
+
+        <div class='col-md-6'>
+
+          <div>
+            <h4>Nueva contraseña</h4>
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Contraseña" aria-describedby="basic-addon1">
+            </div>
+          </div>
+
+          <div>
+            <h4>Confirmar nueva contraseña</h4>
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Confirmar contraseña" aria-describedby="basic-addon1">
+            </div>
+          </div<br/>
+
+          <div>
+            <span class='btn btn-succes'>Cambiar</span>
+          </div>
+
+        </div><br/>
+
+
       </div>
     </div>
-  </div>
 
+  <% else %>
+
+      <div class='col-lg-12'>
+      <div class='media panel panel-success'>
+
+        <h2>Perfil del Transportista</h2>
+
+        <div class='col-md-6'>
+          <img src=<%= asset_path ('carriers/example.jpg') %> alt="" />
+        </div>
+
+        <div class='col-md-6'>
+
+          <div>
+            <h4>Nombre</h4>
+            <span><%= @user.name %></span>
+          </div>
+
+          <div>
+            <h4>Primer Apellido</h4>
+            <span><%= @user.first_surname %></span>
+          </div>
+
+          <div>
+            <h4>Segundo Apellido</h4>
+            <span><%= @user.second_surname %></span>
+          </div>
+
+          <div>
+            <h4>Correo</h4>
+            <span><%= @user.email %></span>
+          </div>
+
+          <div>
+            <h4>Celular</h4>
+            <span><%= @user.mobile_phone %></span>
+          </div>
+
+        </div><br/>
+
+
+      </div>
+    </div>
+
+  <% end %>
+
+  </div>
 </div>
+
+<%= render 'layouts/footer' %>

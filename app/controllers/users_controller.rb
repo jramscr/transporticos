@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  helper UserHelper
+
   before_action :find_user, only: [:show]
+  before_action :carriers, only: [:index]
 
   def index
     @users = User.order(:email).page params[:page]
@@ -26,5 +28,9 @@ class UsersController < ApplicationController
 
   def find_user
     @user = User.find(params[:id])
+  end
+
+  def carriers
+    @carriers = User.all.where(carrier: true)
   end
 end

@@ -1,26 +1,26 @@
-<%= render 'layouts/pagetitle' %>
+<%= render 'layouts/topbar' %>
 
-<div class="row center">
+<div class="container">
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <div class="large-6 columns right">
-   <div class="signup-panel">
-    <p class="welcome"> Welcome to this awesome app!</p>
+  <div class="media">
+   <div class="panel">
+    <p class=""> Welcome to this awesome app!</p>
 
       <%= f.error_notification %>
 
-      <div class="row collapse">
-       <div class="small-10  columns">
+      <div class="">
+       <div class="">
         <%= f.input :email, required: true, autofocus: true, type: 'text', placeholder: 'email' %>
        </div>
       </div>
-      <div class="row collapse">
-       <div class="small-10  columns">
+      <div class="">
+       <div class="">
         <%= f.input :password, required: true, type: 'text', placeholder:'password', hint: ("#{@minimum_password_length} characters minimum" if @validatable) %>
        </div>
       </div>
-      <div class="row collapse">
-       <div class="small-10 columns ">
+      <div class="">
+       <div class="">
         <%= f.input :password_confirmation, required: true, type: 'text', placeholder:'password confirmation' %>
        </div>
       </div>

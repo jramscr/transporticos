@@ -1,0 +1,28 @@
+Estimado <%= @request.user.name || @request.user.email %>
+
+Se ha publicado una solicitud de transporte en la cuál los transportistas
+asociados podrán visualizar la siguiente información:
+
+Detalles para recoger el/los paquetes del encargo:
+
+Fecha de Salida: <%= @request.pick_date.strftime('%A %d %B %Y') %>
+Hora de Salida: <%= @request.pick_date.strftime('%l %M %p') %>
+Dirección de Salida: <%= @request.departure_direction  %></td>
+
+Detalles para entregar el/los paquetes del encargo:
+
+Fecha de Entrega: <%= @request.deliver_date.strftime('%A %d %B %Y') %>
+Hora de Entrega: <%= @request.deliver_date.strftime('%l %M %p') %>
+Dirección de Entrega: <%= @request.arrival_direction  %>
+
+Presupuesto para el encargo:
+
+Monto <%= @request.budget  %>
+
+
+Esperamos que tenga un proceso exitoso y logre transportar sus encargos de
+una manera más eficaz con TICO-Mudanzas
+
+P.D.: En caso de existir un error en los datos favor disponerse a editar la
+solicitud en la dirección http://localhost:3000/requests/<%= @request.id %>/edit.
+

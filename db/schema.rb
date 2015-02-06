@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150125190656) do
+ActiveRecord::Schema.define(version: 20150206054523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,12 +37,22 @@ ActiveRecord::Schema.define(version: 20150125190656) do
 
   add_index "districts", ["township_id"], name: "index_districts_on_township_id", using: :btree
 
+  create_table "notifications", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "request_id"
+  end
+
+  add_index "notifications", ["request_id"], name: "index_notifications_on_request_id", using: :btree
+  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id", using: :btree
+
   create_table "provinces", force: true do |t|
     t.string  "name"
     t.integer "code"
   end
 
-  create_table "requests", id: false, force: true do |t|
+  create_table "requests", force: true do |t|
     t.datetime "pick_date"
     t.datetime "deliver_date"
     t.integer  "budget"
@@ -51,6 +61,10 @@ ActiveRecord::Schema.define(version: 20150125190656) do
     t.integer  "user_id"
     t.integer  "direction_to_pick_id"
     t.integer  "direction_to_deliver_id"
+    t.text     "departure_direction"
+    t.text     "arrival_direction"
+    t.string   "state"
+    t.time     "remaining_time"
   end
 
   add_index "requests", ["direction_to_deliver_id"], name: "index_requests_on_direction_to_deliver_id", using: :btree
@@ -85,6 +99,11 @@ ActiveRecord::Schema.define(version: 20150125190656) do
     t.integer  "invitation_limit"
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
+    t.boolean  "carrier"
+    t.string   "name"
+    t.string   "first_surname"
+    t.string   "second_surname"
+    t.integer  "mobile_phone"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

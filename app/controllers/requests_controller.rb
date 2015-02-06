@@ -1,4 +1,5 @@
 class RequestsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_request, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -13,15 +14,18 @@ class RequestsController < ApplicationController
     @request = Request.new(request_params)
     @request.user_id = current_user.id
     if @request.save
+      RequestMailer.request_published(@request).deliver_now
       redirect_to users_path
     else
       render 'new'
     end
   end
 
-  def show; end
+  def show
+  end
 
-  def edit; end
+  def edit
+  end
 
   def update
     if @request.update(request_params)
@@ -38,14 +42,14 @@ class RequestsController < ApplicationController
   def request_params
     params.require(:request).permit(
       :pick_date,
-      :direction_to_pick_id_attributes[ :province_id, :township_id, :district_id, :description ],
+      :departure_direction,
       :deliver_date,
-      :direction_to_deliver_id_attributes[ :province_id, :township_id, :district_id, :description ],
+      :arrival_direction,
       :budget
       )
   end
 
   def find_request
-    @request = current_user.request.find(params[:id])
+    @request = Request.find(params[:id])
   end
 end

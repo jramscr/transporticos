@@ -1,57 +1,44 @@
 <%= render 'layouts/topbar' %>
 
-<div class='row uncollapse panel callout radius'>
-  <div class='columns small-10 large-8 small-centered large-centered'>
+<div class='container panel panel-default'>
+  <div class='panel-title'>
     <h1>Crear una nueva solicitud</h1>
   </div>
 
-  <div class='columns small-10 large-8 small-centered large-centered'>
+  <div class='panel-body'>
     <%= simple_form_for @request, html: { class: 'form-horizontal' } do |f| %>
-      <div class='row collapse'>
-        <div class='columns small-3'>
-          <%= f.label :pick_date, label: 'Caracteristicas de Envio', class: 'label [radius round]' %>
+      <div class='row'>
+
+        <div class='col-lg-8'>
+          <%= f.input :pick_date, as: :datetime, class: 'form-inline' %>
         </div>
 
-        <div class='columns small-9'>
-          <%= f.input :pick_date, as: :datetime, label: false %>
-        </div>
-
-        <div class='columns small-9'>
-          <%= f.simple_fields_for :direction_to_pick_id do |direction_to_pick| %>
-            <%= render 'direction_fields', :f => direction_to_pick %>
-          <% end %>
+        <div class='col-lg-8'>
+          <%= f.input :departure_direction %>
         </div>
 
       </div>
 
-      <div class='row collapse'>
-        <div class='columns small-3'>
-          <%= f.label :deliver_date, label: 'Caracteristicas de Entrega', class: 'label [radius round]' %>
+      <div class='row'>
+
+        <div class='col-lg-8'>
+          <%= f.input :deliver_date , as: :datetime, class: 'form-inline' %>
         </div>
 
-        <div class='columns small-9'>
-          <%= f.input :deliver_date , as: :datetime, label: false %>
-        </div>
-
-        <div class='columns small-9'>
-          <%= f.simple_fields_for :direction_to_deliver_id do |direction_to_deliver| %>
-            <%= render 'direction_fields', :f => direction_to_deliver %>
-          <% end %>
+        <div class='col-lg-8'>
+          <%= f.input :arrival_direction %>
         </div>
       </div>
 
-      <div class='row collapse'>
-        <div class='columns small-3'>
-          <%= f.label :budget, label: 'Presupuesto', class: 'label [radius round]' %>
-        </div>
+      <div class='row'>
 
-        <div class='columns small-9'>
-          <%= f.input :budget , as: :integer, label: false %>
+        <div class='col-lg-8'>
+          <%= f.input :budget , as: :integer %>
         </div>
       </div>
 
-      <div class='row collapse'>
-        <%= f.submit 'Crear solicitud' , class: 'button radius right' %>
+      <div>
+        <%= f.submit 'Crear solicitud' , class: 'btn btn-primary' %>
       </div>
     <% end %>
   </div>
